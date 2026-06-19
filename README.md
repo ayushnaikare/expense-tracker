@@ -1,30 +1,29 @@
-# expense-tracker
-Student Expense Tracker Web App using Python Flask
-# Expense Tracker
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
-A simple web-based Expense Tracker built using modern web technologies.
+<div class="container">
+    <h1>Expense Tracker</h1>
 
-## Features
+    <form method="POST">
+        <input type="text" name="title" placeholder="Expense Name" required>
+        <input type="number" step="0.01" name="amount" placeholder="Amount" required>
+        <button type="submit">Add Expense</button>
+    </form>
 
-* Add expenses
-* Track spending
-* Categorize transactions
-* View expense history
+    <h2>Total: ₹ {{ total }}</h2>
 
-## Tech Stack
+    <ul>
+        {% for expense in expenses %}
+            <li>{{ expense.title }} - ₹ {{ expense.amount }}</li>
+        {% endfor %}
+    </ul>
+</div>
+</html>
 
-* HTML
-* CSS
-* JavaScript
-
-## Installation
-
-```bash
-git clone <repository-url>
-```
-
-Open the project and run it in your browser.
-
-## Author
-
-Ayush Naikare
